@@ -40,6 +40,9 @@
         const submitFeedbackButton = document.getElementById('submitFeedback');
         const selectedStars = document.getElementById('selectedStars');
         const feedbackForm = document.getElementById('feedbackForm');
+        
+        //Initially hides the feedback form
+        ratingWidget.style.display = 'none';
 
         // Event listener for opening the feedback form
         feedbackButton.addEventListener('click', function () {
@@ -48,7 +51,7 @@
 
         // Event listener for closing the feedback form
         closeStar.addEventListener('click', function () {
-            ratingWidget.classList.add('rating-widget-hidden');  
+            ratingWidget.style.display = 'none';  
         });
 
         // Event listener for selecting stars
