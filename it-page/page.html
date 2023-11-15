@@ -16,6 +16,29 @@
 
 
 
-<div class="feedback-button">Feedback</div>
+<div class="feedback-button" id="feedbackWidgte">Feedback</div>
+
+<div class="rating-widget" id="ratingWidget">
+    <span class="close-star" id="closeStar">&times;</span>
+    <h2>Rate This Page</h2>
+    <div class="stars" id="stars">
+        <span class="star" data-rating="1">&#9733;</span>
+            <span class="star" data-rating="2">&#9733;</span>
+            <span class="star" data-rating="3">&#9733;</span>
+            <span class="star" data-rating="4">&#9733;</span>
+            <span class="star" data-rating="5">&#9733;</span>
+    </div>
+    <form id="feedbackForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" required></textarea>
+        
+        <button type="button" id="submitFeedback">Submit</button>
+    </form>
+    <p id="selectedRating">Your rating: <span id="selectedStars">0</span></p>
+</div>
+<script src="styles/styles.js"></script>
 </body>
 </html>
