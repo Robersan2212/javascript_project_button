@@ -7,38 +7,74 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  
-    
+    <div class="feedback-button" id="feedbackWidget">Feedback</div>
 
-
-
-
-
-
-
-<div class="feedback-button" id="feedbackWidgte">Feedback</div>
-
-<div class="rating-widget" id="ratingWidget">
-    <span class="close-star" id="closeStar">&times;</span>
-    <h2>Rate This Page</h2>
-    <div class="stars" id="stars">
-        <span class="star" data-rating="1">&#9733;</span>
+    <div class="rating-widget" id="ratingWidget">
+        <span class="close-star" id="closeStar">&times;</span>
+        <h2>Rate This Page</h2>
+        <div class="stars" id="stars">
+            <span class="star" data-rating="1">&#9733;</span>
             <span class="star" data-rating="2">&#9733;</span>
             <span class="star" data-rating="3">&#9733;</span>
             <span class="star" data-rating="4">&#9733;</span>
             <span class="star" data-rating="5">&#9733;</span>
+        </div>
+        <form id="feedbackForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+            
+            <button type="button" id="submitFeedback">Submit</button>
+        </form>
+        <p id="selectedRating">Your rating: <span id="selectedStars">0</span></p>
     </div>
-    <form id="feedbackForm">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="feedback">Feedback:</label>
-        <textarea id="feedback" name="feedback" rows="4" required></textarea>
-        
-        <button type="button" id="submitFeedback">Submit</button>
-    </form>
-    <p id="selectedRating">Your rating: <span id="selectedStars">0</span></p>
-</div>
-<script src="styles/styles.js"></script>
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+        const feedbackButton = document.getElementById('feedbackWidget');
+        const ratingWidget = document.getElementById('ratingWidget');
+        const closeStar = document.getElementById('closeStar');
+        const stars = document.getElementById('stars');
+        const submitFeedbackButton = document.getElementById('submitFeedback');
+        const selectedStars = document.getElementById('selectedStars');
+        const feedbackForm = document.getElementById('feedbackForm');
+
+        // Event listener for opening the feedback form
+        feedbackButton.addEventListener('click', function () {
+            ratingWidget.style.display =  ratingWidget.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Event listener for closing the feedback form
+        closeStar.addEventListener('click', function () {
+            ratingWidget.classList.add('rating-widget-hidden');  
+        });
+
+        // Event listener for selecting stars
+        stars.addEventListener('click', function (event) {
+            if (event.target.classList.contains('star')) {
+                const rating = event.target.getAttribute('data-rating');
+                selectedStars.textContent = rating;
+            }
+        });
+
+        // Event listener for submitting feedback
+        submitFeedbackButton.addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback').value;
+            const rating = selectedStars.textContent;
+
+            // Perform actions with email, feedback, and rating
+            // For now, you can log them to the console
+            console.log('Email:', email);
+            console.log('Feedback:', feedback);
+            console.log('Rating:', rating);
+
+            // Close the feedback form
+            ratingWidget.style.display = 'none';
+        });
+    });
+    </script>
 </body>
 </html>
