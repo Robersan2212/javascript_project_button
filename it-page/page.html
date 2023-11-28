@@ -19,7 +19,9 @@
             <span class="star" data-rating="4">&#9733;</span>
             <span class="star" data-rating="5">&#9733;</span>
         </div>
-        <form id="feedbackForm">
+        <button type="button" id="nextSelection">Next</button>
+
+        <form id="feedbackForm" style="display: none;">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
@@ -37,6 +39,7 @@
         const ratingWidget = document.getElementById('ratingWidget');
         const closeStar = document.getElementById('closeStar');
         const stars = document.getElementById('stars');
+        const nextSelection = document.getElementById('nextSelection');
         const submitFeedbackButton = document.getElementById('submitFeedback');
         const selectedStars = document.getElementById('selectedStars');
         const feedbackForm = document.getElementById('feedbackForm');
@@ -46,7 +49,8 @@
 
         // Event listener for opening the feedback form
         feedbackButton.addEventListener('click', function () {
-            ratingWidget.style.display =  ratingWidget.style.display === 'none' ? 'block' : 'none';
+            ratingWidget.style.display =  'block';
+            feedbackForm.style.display = 'none';
         });
 
         // Event listener for closing the feedback form
@@ -61,6 +65,13 @@
                 selectedStars.textContent = rating;
             }
         });
+
+        //Event listener to moving to the feedback form
+         nextSelection.addEventListener ('click' , function () {
+            stars.style.display = 'none'
+            ratingWidget.style.display = 'none';
+            feedbackForm.style.display = 'block'
+        }); 
 
         // Event listener for submitting feedback
         submitFeedbackButton.addEventListener('click', function () {
