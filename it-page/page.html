@@ -37,7 +37,6 @@
           document.addEventListener('DOMContentLoaded', function () {
         const feedbackButton = document.getElementById('feedbackWidget');
         const ratingWidget = document.getElementById('ratingWidget');
-        const closeStar = document.getElementById('closeStar');
         const stars = document.getElementById('stars');
         const nextSelection = document.getElementById('nextSelection');
         const submitFeedbackButton = document.getElementById('submitFeedback');
@@ -68,7 +67,6 @@
 
         //Event listener to moving to the feedback form
          nextSelection.addEventListener ('click' , function () {
-            stars.style.display = 'none'
             ratingWidget.style.display = 'none';
             feedbackForm.style.display = 'block'
         }); 
