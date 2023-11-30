@@ -34,59 +34,64 @@
     </div>
 
     <script>
-          document.addEventListener('DOMContentLoaded', function () {
-        const feedbackButton = document.getElementById('feedbackWidget');
-        const ratingWidget = document.getElementById('ratingWidget');
-        const stars = document.getElementById('stars');
-        const nextSelection = document.getElementById('nextSelection');
-        const submitFeedbackButton = document.getElementById('submitFeedback');
-        const selectedStars = document.getElementById('selectedStars');
-        const feedbackForm = document.getElementById('feedbackForm');
-        
-        //Initially hides the feedback form
-        ratingWidget.style.display = 'none';
+     document.addEventListener('DOMContentLoaded', function () {
+    const feedbackButton = document.getElementById('feedbackWidget');
+    const ratingWidget = document.getElementById('ratingWidget')
+    const closeStar = document.getElementById('closeStar'); // Add this line
+    const stars = document.getElementById('stars');
+    const nextSelection = document.getElementById('nextSelection');
+    const submitFeedbackButton = document.getElementById('submitFeedback');
+    const selectedStars = document.getElementById('selectedStars');
+    const feedbackForm = document.getElementById('feedbackForm');
 
-        // Event listener for opening the feedback form
-        feedbackButton.addEventListener('click', function () {
-            ratingWidget.style.display =  'block';
-            feedbackForm.style.display = 'none';
-        });
+    // Initially hide the feedback form
+    ratingWidget.style.display = 'none';
 
-        // Event listener for closing the feedback form
-        closeStar.addEventListener('click', function () {
-            ratingWidget.style.display = 'none';  
-        });
-
-        // Event listener for selecting stars
-        stars.addEventListener('click', function (event) {
-            if (event.target.classList.contains('star')) {
-                const rating = event.target.getAttribute('data-rating');
-                selectedStars.textContent = rating;
-            }
-        });
-
-        //Event listener to moving to the feedback form
-         nextSelection.addEventListener ('click' , function () {
-            ratingWidget.style.display = 'none';
-            feedbackForm.style.display = 'block'
-        }); 
-
-        // Event listener for submitting feedback
-        submitFeedbackButton.addEventListener('click', function () {
-            const email = document.getElementById('email').value;
-            const feedback = document.getElementById('feedback').value;
-            const rating = selectedStars.textContent;
-
-            // Perform actions with email, feedback, and rating
-            // For now, you can log them to the console
-            console.log('Email:', email);
-            console.log('Feedback:', feedback);
-            console.log('Rating:', rating);
-
-            // Close the feedback form
-            ratingWidget.style.display = 'none';
-        });
+    // Event listener for opening the feedback form
+    feedbackButton.addEventListener('click', function () {
+        ratingWidget.style.display = 'block';
+        feedbackForm.style.display = 'none';
+        feedbackButton.classList.add('feedback-button-active');
     });
+
+    // Event listener for closing the feedback form
+    closeStar.addEventListener('click', function () {
+        ratingWidget.style.display = 'none';
+        feedbackButton.classList.remove('feedback-button-active');
+    });
+
+    // Event listener for selecting stars
+    stars.addEventListener('click', function (event) {
+        if (event.target.classList.contains('star')) {
+            const rating = event.target.getAttribute('data-rating');
+            selectedStars.textContent = rating;
+        }
+    });
+
+    // Event listener to move to the feedback form
+    nextSelection.addEventListener('click', function () {
+        stars.style.display = 'none';
+        feedbackForm.style.display = 'block';
+    });
+
+    // Event listener for submitting feedback
+    submitFeedbackButton.addEventListener('click', function () {
+        const email = document.getElementById('email').value;
+        const feedback = document.getElementById('feedback').value;
+        const rating = selectedStars.textContent;
+
+
+
+        // Perform actions with email, feedback, and rating
+        // For now, you can log them to the console
+        console.log('Email:', email);
+        console.log('Feedback:', feedback);
+        console.log('Rating:', rating);
+
+        // Reset the star selection and hide the feedback form
+        
+    });
+});
     </script>
 </body>
 </html>
