@@ -37,7 +37,7 @@
      document.addEventListener('DOMContentLoaded', function () {
     const feedbackButton = document.getElementById('feedbackWidget');
     const ratingWidget = document.getElementById('ratingWidget')
-    const closeStar = document.getElementById('closeStar'); // Add this line
+    const closeStar = document.getElementById('closeStar');
     const stars = document.getElementById('stars');
     const nextSelection = document.getElementById('nextSelection');
     const submitFeedbackButton = document.getElementById('submitFeedback');
@@ -80,15 +80,22 @@
         const feedback = document.getElementById('feedback').value;
         const rating = selectedStars.textContent;
 
+        //perform action with email, feedback, and rating.
+        console.log('email:', email);
+        console.log('feedback:', feedback);
+        console.log('Rating:' , rating);
 
+        //Reset for feedback form
+        feedbackForm.reset();
 
-        // Perform actions with email, feedback, and rating
-        // For now, you can log them to the console
-        console.log('Email:', email);
-        console.log('Feedback:', feedback);
-        console.log('Rating:', rating);
+        //Reset the star selection
+        selectedStars.textContent = '0';
 
-        // Reset the star selection and hide the feedback form
+        //Action to hide the rating forms.
+        ratingWidget.style.display = 'none'
+
+        //Action to show the feedback button.
+        feedbackButton.classList.remove('feedback-button-active');
         
     });
 });
