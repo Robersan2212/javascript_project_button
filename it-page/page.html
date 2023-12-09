@@ -52,12 +52,14 @@
         ratingWidget.style.display = 'block';
         feedbackForm.style.display = 'none';
         feedbackButton.classList.add('feedback-button-active');
+        feedbackButton.style.display = 'none';
     });
 
     // Event listener for closing the feedback form
     closeStar.addEventListener('click', function () {
         ratingWidget.style.display = 'none';
         feedbackButton.classList.remove('feedback-button-active');
+        feedbackButton.style.display = 'block'; 
     });
 
     // Event listener for selecting stars
@@ -72,6 +74,7 @@
     nextSelection.addEventListener('click', function () {
         stars.style.display = 'none';
         feedbackForm.style.display = 'block';
+        nextSelection.style.display = 'none';
     });
 
     // Event listener for submitting feedback

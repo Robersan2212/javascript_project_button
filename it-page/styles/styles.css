@@ -29,7 +29,15 @@ cursor: pointer;
     /* Additional styles for the rating widget */
     background-color: #006eb6; /* Same color as the feedback button */
     padding: 20px;
+    border-radius: 8px;
     color: #ffffff; /* Text color */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
 }
+
+.star {
+    font-size: 40px; 
+    cursor: pointer;
+    color: grey; 
+}
+
