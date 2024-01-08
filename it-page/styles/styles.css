@@ -13,12 +13,15 @@ font-size: 16px;
 margin: -35px;
 background-color:#006eb6 ;
 transform: rotate(90deg);
-
 /*style of close button*/
 border-radius: 8px;
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 color: #ffffff;
 cursor: pointer;
+}
+
+.stars-hidden{
+    display:none;
 }
 
 .rating-widget-hidden {
@@ -29,15 +32,18 @@ cursor: pointer;
     /* Additional styles for the rating widget */
     background-color: #006eb6; /* Same color as the feedback button */
     padding: 20px;
-    border-radius: 8px;
     color: #ffffff; /* Text color */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 20px;
+
 }
 
-.star {
-    font-size: 40px; 
-    cursor: pointer;
-    color: grey; 
+.stars{
+    margin-bottom: 10px;
 }
 
+#nextSelection{
+    margin-top: 10px;
+}
