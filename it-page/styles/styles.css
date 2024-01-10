@@ -6,6 +6,7 @@ justify-content: flex-end;
 height: 100vh;
 }
 
+/*styling and position for the close button-----*/
 .feedback-button{
 /*position of close button*/
 padding: 10px;
@@ -19,30 +20,42 @@ font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 color: #ffffff;
 cursor: pointer;
 }
+/*styling and position for the close button-----*/
 
+
+
+/*Styling and Effect for Star Selection-----*/
 .stars-hidden{
     display:none;
 }
-
-.rating-widget-hidden {
-    display: none;   
+.star {
+    color: grey;
 }
-
-.rating-widget {
-    /* Additional styles for the rating widget */
-    background-color: #006eb6; /* Same color as the feedback button */
-    padding: 20px;
-    color: #ffffff; /* Text color */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-bottom: 20px;
-
-}
+.star.hovered {color: gold;}
 
 .stars{
     margin-bottom: 10px;
 }
+/*Styling and Effect for Star Selection-----*/
+
+
+
+/* Styling for div class "rating-widget"---- */
+.rating-widget-hidden {
+    display: none;   
+}
+.rating-widget {
+    background-color: #006eb6;
+    padding: 20px;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+/* Styling for div class "rating-widget"---- */
+
+
 
 #nextSelection{
     margin-top: 10px;

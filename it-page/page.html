@@ -11,7 +11,7 @@
 
     <div class="rating-widget" id="ratingWidget">
         <span class="close-star" id="closeStar">&times;</span>
-        <h3>How would you rate our Information Technology website?  </h3>
+        <h3>How Helpful Was This Page?</h3>
         <div class="stars" id="stars">
             <span class="star" data-rating="1">&#9733;</span>
             <span class="star" data-rating="2">&#9733;</span>
@@ -44,6 +44,7 @@
     const selectedStars = document.getElementById('selectedStars');
     const feedbackForm = document.getElementById('feedbackForm');
 
+    
     // Initially hide the feedback form
     ratingWidget.style.display = 'none';
 
@@ -57,9 +58,15 @@
 
     // Event listener for closing the feedback form
     closeStar.addEventListener('click', function () {
+        feedbackForm.reset();
+        selectedStars.textContent = '0';
         ratingWidget.style.display = 'none';
         feedbackButton.classList.remove('feedback-button-active');
         feedbackButton.style.display = 'block'; 
+        
+        //Reset action for the star selection
+        stars.style.display = 'block';
+        nextSelection.style.display = 'block';
     });
 
     // Event listener for selecting stars
@@ -67,6 +74,32 @@
         if (event.target.classList.contains('star')) {
             const rating = event.target.getAttribute('data-rating');
             selectedStars.textContent = rating;
+        }
+    });
+
+    // Event listener for hovering over stars
+    stars.addEventListener('mouseover', function (event) {
+        if (event.target.classList.contains('star')) {
+            let hoveredStar = event.target;
+            let previousSibling = hoveredStar.previousElementSibling;
+            hoveredStar.classList.add('hovered');
+            while (previousSibling) {
+            previousSibling.classList.add('hovered');
+            previousSibling = previousSibling.previousElementSibling;
+        }
+        }
+    });
+
+    // Event listener for hovering out of stars
+    stars.addEventListener('mouseout', function (event) {
+        if (event.target.classList.contains('star')) {
+            let hoveredStar = event.target;
+            let previousSibling = hoveredStar.previousElementSibling;
+            hoveredStar.classList.remove('hovered');
+            while (previousSibling) {
+            previousSibling.classList.remove('hovered');
+            previousSibling = previousSibling.previousElementSibling;
+        }
         }
     });
 
