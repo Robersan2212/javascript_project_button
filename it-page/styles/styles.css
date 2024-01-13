@@ -20,7 +20,7 @@ font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 color: #ffffff;
 cursor: pointer;
 }
-/*styling and position for the close button-----*/
+
 
 
 
@@ -30,13 +30,31 @@ cursor: pointer;
 }
 .star {
     color: grey;
+    font-size: 2em;
 }
 .star.hovered {color: gold;}
 
 .stars{
+    margin-top: 0;
     margin-bottom: 10px;
 }
-/*Styling and Effect for Star Selection-----*/
+.star.selected{
+    color: gold;
+}
+
+
+
+
+
+/*Styling of text areas for email and Feedback----*/
+#feedbackForm textarea,
+#feedbackForm input{
+    display: block;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 
 
@@ -53,10 +71,17 @@ cursor: pointer;
     border-radius: 8px;
     margin-bottom: 20px;
 }
-/* Styling for div class "rating-widget"---- */
+
+/*Styling for "Submit" button----*/
+#submitFeedback{
+    background-color:white;
+    border: none;
+    border-radius: 8px
+}
 
 
-
+/*Styling of "Next" button----*/
 #nextSelection{
+    display: none;
     margin-top: 10px;
 }

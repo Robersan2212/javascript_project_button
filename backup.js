@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const starElements = document.querySelectorAll('.star');
         starElements.forEach(star => star.classList.remove('selected'));
-        
 
         // Adding ".selected" class to the clicked star and all stars to the left
         let selectedStar = event.target;
@@ -54,11 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         while (previousSibling) {
             previousSibling.classList.add('selected');
             previousSibling = previousSibling.previousElementSibling;
-        } 
-        //Moving to feedback form
-        stars.style.display ='none';
-        feedbackForm.style.display = 'block';
-        nextSelection.style.display = 'none';
+        }   
         }  
     });
 
@@ -71,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             while (previousSibling) {
                 previousSibling.classList.add('hovered');
                 previousSibling = previousSibling.previousElementSibling;
+               
             }
         }
     });
@@ -84,19 +80,16 @@ document.addEventListener('DOMContentLoaded', function () {
             while (previousSibling) {
             previousSibling.classList.remove('hovered');
             previousSibling = previousSibling.previousElementSibling;
-         }
+        }
         }
     });
 
-    //*********************************************************************** */
-    // // Event listener to move to the feedback form with "Next" button
-    // nextSelection.addEventListener('click', function () {
-    //     stars.style.display = 'none';
-    //     feedbackForm.style.display = 'block';
-    //     nextSelection.style.display = 'none';
-    // });
-    //*********************************************************************** */
-
+    // Event listener to move to the feedback form
+    nextSelection.addEventListener('click', function () {
+        stars.style.display = 'none';
+        feedbackForm.style.display = 'block';
+        nextSelection.style.display = 'none';
+    });
 
     // Event listener for submitting feedback
     submitFeedbackButton.addEventListener('click', function () {
@@ -123,4 +116,3 @@ document.addEventListener('DOMContentLoaded', function () {
         
     });
 });
-
