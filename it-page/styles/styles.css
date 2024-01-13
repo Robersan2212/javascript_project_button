@@ -6,6 +6,14 @@ justify-content: flex-end;
 height: 100vh;
 }
 
+@keyframes shake {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
 /*styling and position for the close button-----*/
 .feedback-button{
 /*position of close button*/
@@ -21,6 +29,10 @@ color: #ffffff;
 cursor: pointer;
 }
 
+.feedback-button-active{
+    animation: shake 0.5s;
+}
+
 
 
 
@@ -29,7 +41,7 @@ cursor: pointer;
     display:none;
 }
 .star {
-    color: grey;
+    color: white;
     font-size: 2em;
 }
 .star.hovered {color: gold;}
@@ -78,6 +90,7 @@ cursor: pointer;
     border: none;
     border-radius: 8px
 }
+
 
 
 /*Styling of "Next" button----*/

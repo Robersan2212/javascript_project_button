@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         //Reset action for the star selection
         stars.style.display = 'block';
-        nextSelection.style.display = 'block';
+        nextSelection.style.display = 'none';
 
         //Removes ".selected" class from all stars when closing
         const starElements = document.querySelectorAll('.star');
