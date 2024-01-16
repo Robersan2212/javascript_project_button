@@ -6,13 +6,7 @@ justify-content: flex-end;
 height: 100vh;
 }
 
-@keyframes shake {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-10px); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(10px); }
-    100% { transform: translateY(0); }
-}
+
 
 /*styling and position for the close button-----*/
 .feedback-button{
@@ -27,10 +21,14 @@ border-radius: 8px;
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 color: #ffffff;
 cursor: pointer;
-}
 
-.feedback-button-active{
-    animation: shake 0.5s;
+animation: shake 5s ease-in-out infinite; 
+}
+@keyframes shake {
+    0%, 16.67% { transform: rotate(90deg) translateY(0); }
+    4.17%, 12.5% { transform: rotate(90deg) translateY(-5px); }
+    8.33% { transform: rotate(90deg) translateY(0); }
+    20.83%, 100% { transform: rotate(90deg) translateY(0); }
 }
 
 
@@ -72,7 +70,7 @@ cursor: pointer;
 
 /* Styling for div class "rating-widget"---- */
 .rating-widget-hidden {
-    display: none;   
+    display: none; 
 }
 .rating-widget {
     background-color: #006eb6;

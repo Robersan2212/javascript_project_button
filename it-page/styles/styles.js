@@ -104,10 +104,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const feedback = document.getElementById('feedback').value;
         const rating = selectedStars.textContent;
 
-        //perform action with email, feedback, and rating.
-        console.log('email:', email);
-        console.log('feedback:', feedback);
-        console.log('Rating:' , rating);
+        // Send data to server
+        fetch('/feedback_insertion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email, feedback, rating}), 
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
         //Reset for feedback form
         feedbackForm.reset();
