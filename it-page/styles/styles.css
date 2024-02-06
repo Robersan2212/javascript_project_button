@@ -11,6 +11,7 @@ height: 100vh;
 /*styling and position for the close button-----*/
 .feedback-button{
 /*position of close button*/
+animation: slide;
 padding: 10px;
 font-size: 16px;
 margin: -35px;
@@ -31,6 +32,14 @@ animation: shake 5s ease-in-out infinite;
     20.83%, 100% { transform: rotate(90deg) translateY(0); }
 }
 
+#feedback{
+    border-radius: 10px;
+    resize: none;
+}
+
+#email{
+    border-radius: 10px;
+}
 
 
 
@@ -39,14 +48,19 @@ animation: shake 5s ease-in-out infinite;
     display:none;
 }
 .star {
-    color: white;
-    font-size: 2em;
+    color: #006eb6;
+    text-shadow: -1px 0 gold, 0 1px gold, 1px 0 gold, 0 -1px gold;
+    font-size: 3em;
+    animation: slide-in 1s; 
 }
-.star.hovered {color: gold;}
+.star.hovered {
+    transform: scale(1.2);
+    color: gold;}
+
 
 .stars{
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-top: -20px;
+    margin-bottom: 8px;
 }
 .star.selected{
     color: gold;
@@ -67,6 +81,11 @@ animation: shake 5s ease-in-out infinite;
 }
 
 
+#feed-button{
+    animation: slide;
+}
+
+
 
 /* Styling for div class "rating-widget"---- */
 .rating-widget-hidden {
@@ -82,12 +101,24 @@ animation: shake 5s ease-in-out infinite;
     margin-bottom: 20px;
 }
 
+#selectedRating {
+    display: none;
+    font-size: medium;
+}
+
+
 /*Styling for "Submit" button----*/
 #submitFeedback{
+    margin-top: 10px;
+    margin-left: 95px;
+    color: #006eb6;
+    border: 2px solid #006eb6 ;
+    font-size: large;
     background-color:white;
     border: none;
-    border-radius: 8px
+    border-radius: 10px;
 }
+
 
 
 

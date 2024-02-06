@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitFeedbackButton = document.getElementById('submitFeedback');
     const selectedStars = document.getElementById('selectedStars');
     const feedbackForm = document.getElementById('feedbackForm');
+    const selectedRating = document.getElementById('selectedRating');
 
     
     // Initially hide the feedback form
@@ -18,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
         feedbackForm.style.display = 'none';
         feedbackButton.classList.add('feedback-button-active');
         feedbackButton.style.display = 'none';
+        selectedRating.style.display = 'none';
+        ratingWidget.classList.add('show');
     });
 
     // Event listener for closing the feedback form
@@ -45,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const starElements = document.querySelectorAll('.star');
         starElements.forEach(star => star.classList.remove('selected'));
+        selectedRating.style.display = 'block';
         
 
         // Adding ".selected" class to the clicked star and all stars to the left
