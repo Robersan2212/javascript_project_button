@@ -1,3 +1,10 @@
+//functions to add transition effect to elements
+function addTransition(element) {
+    element.style.transition = "opacity 0.5s ease-in-out";
+    element.style.opacity = 0;
+
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const feedbackButton = document.getElementById('feedbackWidget');
     const ratingWidget = document.getElementById('ratingWidget')
@@ -21,6 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
         feedbackButton.style.display = 'none';
         selectedRating.style.display = 'none';
         ratingWidget.classList.add('show');
+        addTransition(ratingWidget);
+        setTimeout(function() {
+        ratingWidget.style.opacity = 1;
+        }, 50);
     });
 
     // Event listener for closing the feedback form
@@ -133,7 +144,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //Action to show the feedback button.
         feedbackButton.classList.remove('feedback-button-active');
-        
+
+        addTransition(feedbackForm);
     });
 });
 

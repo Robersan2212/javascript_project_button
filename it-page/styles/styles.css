@@ -50,8 +50,7 @@ animation: shake 5s ease-in-out infinite;
 .star {
     color: #006eb6;
     text-shadow: -1px 0 gold, 0 1px gold, 1px 0 gold, 0 -1px gold;
-    font-size: 3em;
-    animation: slide-in 1s; 
+    font-size: 3em; 
 }
 .star.hovered {
     transform: scale(1.2);
