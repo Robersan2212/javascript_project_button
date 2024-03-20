@@ -1,9 +1,13 @@
-//functions to add transition effect to elements
-function addTransition(element) {
-    element.style.transition = "opacity 0.5s ease-in-out";
-    element.style.opacity = 0;
-
+//function to add transition effect to elements
+function addTransition(element, direction) {
+    element.style.transition = "transform 0.5s ease-in-out";
+    if (direction === 'right') {
+        element.style.transform = "translateX(100%)"; // slide in from right
+    } else if (direction === 'bottom') {
+        element.style.transform = "translateY(100%)"; // slide in from bottom
+    }
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const feedbackButton = document.getElementById('feedbackWidget');
@@ -14,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitFeedbackButton = document.getElementById('submitFeedback');
     const selectedStars = document.getElementById('selectedStars');
     const feedbackForm = document.getElementById('feedbackForm');
+    console.log(feedbackForm);
     const selectedRating = document.getElementById('selectedRating');
 
     
@@ -28,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
         feedbackButton.style.display = 'none';
         selectedRating.style.display = 'none';
         ratingWidget.classList.add('show');
-        addTransition(ratingWidget);
+        addTransition(ratingWidget, 'right');
         setTimeout(function() {
-        ratingWidget.style.opacity = 1;
+        ratingWidget.style.transform = "translateX(0)";
         }, 50);
     });
 
@@ -40,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
         selectedStars.textContent = '0';
         ratingWidget.style.display = 'none';
         feedbackButton.classList.remove('feedback-button-active');
-        feedbackButton.style.display = 'block'; 
-        
+        feedbackButton.style.display = 'block';
+
         //Reset action for the star selection
         stars.style.display = 'block';
         nextSelection.style.display = 'none';
@@ -74,7 +79,20 @@ document.addEventListener('DOMContentLoaded', function () {
         stars.style.display ='none';
         feedbackForm.style.display = 'block';
         nextSelection.style.display = 'none';
-        }  
+
+        addTransition(ratingWidget, 'bottom');
+        setTimeout(function() {
+        ratingWidget.style.transform = "translateY(0)";
+        }, 50);
+
+        addTransition(feedbackForm, 'right');
+        setTimeout(function() {
+        feedbackForm.style.transform = "translateX(0)";
+        }, 50);
+
+        } 
+        
+        
     });
 
     // Event listener for hovering over stars
@@ -120,21 +138,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const rating = selectedStars.textContent;
 
         // Send data to server
-        fetch('/feedback_insertion', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({email, feedback, rating}), 
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        console.log('Email:', email);
+        console.log('Feedback:', feedback);
+        console.log('Rating:', rating);
 
         //Reset for feedback form
         feedbackForm.reset();
+
+
+        const feedbackMessage = document.getElementById('feedbackMessage');
+        feedbackMessage.style.display = 'block';
 
         //Reset the star selection
         selectedStars.textContent = '0';

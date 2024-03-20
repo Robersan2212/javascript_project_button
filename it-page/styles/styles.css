@@ -126,3 +126,12 @@ animation: shake 5s ease-in-out infinite;
     display: none;
     margin-top: 10px;
 }
+
+/*Styling of "Thank You" message----*/
+#feedbackMessage{
+    display: none;
+    margin-top: 10px;
+    font-size: large;
+    color: #006eb6;
+    font-weight: bold;
+}
