@@ -1,11 +1,17 @@
 //function to add transition effect to elements
 function addTransition(element, direction) {
-    element.style.transition = "transform 0.5s ease-in-out";
+    element.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
     if (direction === 'right') {
         element.style.transform = "translateX(100%)"; // slide in from right
+        element.style.opacity = "0";
     } else if (direction === 'bottom') {
         element.style.transform = "translateY(100%)"; // slide in from bottom
+        element.style.opacity = "0";
+    } else if (direction === 'top') {
+        element.style.transform = "translateY(-100%)"; // slide in from top
+        element.style.opacity = "0";
     }
+
 }
 
 
@@ -35,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
         ratingWidget.classList.add('show');
         addTransition(ratingWidget, 'right');
         setTimeout(function() {
-        ratingWidget.style.transform = "translateX(0)";
+            ratingWidget.style.transform = "translateX(0)";
+            ratingWidget.style.opacity = "1";  // Fade in
         }, 50);
     });
 
@@ -82,12 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         addTransition(ratingWidget, 'bottom');
         setTimeout(function() {
-        ratingWidget.style.transform = "translateY(0)";
+            ratingWidget.style.transform = "translateY(0)";
+            ratingWidget.style.opacity = "1";  
         }, 50);
 
         addTransition(feedbackForm, 'right');
         setTimeout(function() {
-        feedbackForm.style.transform = "translateX(0)";
+            feedbackForm.style.transform = "translateX(0)";
+            feedbackForm.style.opacity = "1";  
         }, 50);
 
         } 
@@ -145,20 +154,31 @@ document.addEventListener('DOMContentLoaded', function () {
         //Reset for feedback form
         feedbackForm.reset();
 
+        // Show Thank you message
+        const thankYouForm = document.getElementById('thankYou');
+        thankYouForm.style.display = 'block';  // Show the thank you message
+        thankYouForm.classList.add('show');
+        addTransition(thankYouForm, 'top');
+        setTimeout(function() {
+            thankYouForm.style.opacity = "1";  // Fade in
+        }, 50)
 
-        const feedbackMessage = document.getElementById('feedbackMessage');
-        feedbackMessage.style.display = 'block';
+        // Fade out thankYouForm after 3 seconds
+        setTimeout(function() {
+            thankYouForm.style.transition = "opacity 1s ease-in-out";
+            thankYouForm.style.opacity = "0";  // Fade out
+        }, 1000);
 
         //Reset the star selection
         selectedStars.textContent = '0';
 
         //Action to hide the rating forms.
-        ratingWidget.style.display = 'none'
+       ratingWidget.style.display = 'none'
 
         //Action to show the feedback button.
         feedbackButton.classList.remove('feedback-button-active');
 
-        addTransition(feedbackForm);
     });
+
 });
 

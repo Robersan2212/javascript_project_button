@@ -23,21 +23,23 @@
         <button type="button" id="nextSelection">Next</button>
 
         <form id="feedbackForm" style="display: none;">
-            <label for="feedback">Feedback:</label>
+            <label for="feedback">Feedback</label>
             <textarea id="feedback" name="feedback" rows="4" required></textarea>
         
-            <label for="email">Email:</label>
+            <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
             
             <button type="button" id="submitFeedback">Submit</button>
         </form>
         <p id="selectedRating">Your rating: <span id="selectedStars">0</span></p>
 
-        <div id="feedbackMessage">
-            <p>Thank you for your feedback!</p>
-        </div>
 
     </div>
+    
+    <div id="thankYou" style="display: none;">
+        <p>Thank you for your feedback!</p>
+    </div>
+
     <script src="styles/styles.js"></script>
 </body> 
 </html>
