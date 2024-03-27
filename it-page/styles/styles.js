@@ -5,8 +5,8 @@ function addTransition(element, direction) {
         element.style.transform = "translateX(100%)"; // slide in from right
         element.style.opacity = "0";
     } else if (direction === 'left') {
-        element.style.transform = "translateX(100%)"; // slide in from left
-        
+        element.style.transform = "translateX(-100%)"; // slide in from left
+        element.style.opacity = "0";
     } else if (direction === 'bottom') {
         element.style.transform = "translateY(100%)"; // slide in from bottom
         element.style.opacity = "0";
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         feedbackButton.style.display = 'none';
         selectedRating.style.display = 'none';
         ratingWidget.classList.add('show');
-        addTransition(ratingWidget, 'right');
+        addTransition(ratingWidget, 'left');
         setTimeout(function() {
             ratingWidget.style.transform = "translateX(0)";
             ratingWidget.style.opacity = "1";  // Fade in
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ratingWidget.style.opacity = "1";  
         }, 50);
 
-        addTransition(feedbackForm, 'right');
+        addTransition(feedbackForm, 'left');
         setTimeout(function() {
             feedbackForm.style.transform = "translateX(0)";
             feedbackForm.style.opacity = "1";  
@@ -164,8 +164,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const thankYouForm = document.getElementById('thankYou');
         thankYouForm.style.display = 'block';  // Show the thank you message
         thankYouForm.classList.add('show');
-        addTransition(thankYouForm, 'top');
+        addTransition(thankYouForm, 'left');
         setTimeout(function() {
+            thankYouForm.style.transform = "translateX(0)";
             thankYouForm.style.opacity = "1";  // Fade in
         }, 50)
 

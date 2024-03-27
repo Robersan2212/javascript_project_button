@@ -8,25 +8,31 @@ height: 100vh;
 
 
 
-/*styling and position for the close button-----*/
+/*Styling and position for the close button: id=feedback-button Div----------------------------------*/
 .feedback-button{
-/*position of close button*/
+/*Position of close button---------------------------------*/
+position: fixed;
+left: 0; 
+top: 50%;
+transform: translateY(-50%) rotate(90deg);
 animation: slide;
 padding: 10px;
 font-size: 16px;
 margin: -35px;
-background-color:#006eb6 ;
-transform: rotate(90deg);
-/*style of close button*/
+background-color:#006eb6;
+/*---------------------------------------------------------*/
+/*Style of close button--------------------------------------*/
 border-radius: 8px;
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 color: #ffffff;
 cursor: pointer;
 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-
-
 animation: shake 5s ease-in-out infinite; 
+/*Style----------------------------------------------------------*/ 
 }
+
+
+
 @keyframes shake {
     0%, 16.67% { transform: rotate(90deg) translateY(0); }
     4.17%, 12.5% { transform: rotate(90deg) translateY(-5px); }
@@ -49,6 +55,8 @@ animation: shake 5s ease-in-out infinite;
 
 
 
+
+
 /*Styling and Effect for Star Selection-----*/
 .stars-hidden{
     display:none;
@@ -57,6 +65,8 @@ animation: shake 5s ease-in-out infinite;
     color: #006eb6;
     text-shadow: -1px 0 gold, 0 1px gold, 1px 0 gold, 0 -1px gold;
     font-size: 3em; 
+    
+    
 }
 .star.hovered {
     transform: scale(1.2);
@@ -86,9 +96,6 @@ animation: shake 5s ease-in-out infinite;
 }
 
 
-#feed-button{
-    animation: slide;
-}
 
 
 
@@ -97,14 +104,17 @@ animation: shake 5s ease-in-out infinite;
     display: none; 
 }
 .rating-widget {
+    position: fixed;
+    left: 0; /* Change this from right to left */
+    top: 42%;
+    transform: translateY(-50%);
     background-color: #006eb6;
     padding: 20px;
     color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
     border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  
 }
 
 #selectedRating {
@@ -136,7 +146,10 @@ animation: shake 5s ease-in-out infinite;
 
 /*Style for Thank you message----*/
 #thankYou{
-    
+    position: fixed;
+    left: 0; /* Change this from right to left */
+    top: 40%;
+    transform: translateY(-50%);
     border-radius: 8px;
     padding: 10px;
     background-color: #006eb6;
