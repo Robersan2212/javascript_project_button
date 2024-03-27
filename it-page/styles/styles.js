@@ -4,11 +4,17 @@ function addTransition(element, direction) {
     if (direction === 'right') {
         element.style.transform = "translateX(100%)"; // slide in from right
         element.style.opacity = "0";
+    } else if (direction === 'left') {
+        element.style.transform = "translateX(100%)"; // slide in from left
+        
     } else if (direction === 'bottom') {
         element.style.transform = "translateY(100%)"; // slide in from bottom
         element.style.opacity = "0";
     } else if (direction === 'top') {
         element.style.transform = "translateY(-100%)"; // slide in from top
+        element.style.opacity = "0";
+    } else if (direction === 'leftFromCurrent') {
+        // Do not change transform property
         element.style.opacity = "0";
     }
 
@@ -87,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         feedbackForm.style.display = 'block';
         nextSelection.style.display = 'none';
 
-        addTransition(ratingWidget, 'bottom');
+        addTransition(ratingWidget, 'top');
         setTimeout(function() {
             ratingWidget.style.transform = "translateY(0)";
             ratingWidget.style.opacity = "1";  
@@ -163,10 +169,13 @@ document.addEventListener('DOMContentLoaded', function () {
             thankYouForm.style.opacity = "1";  // Fade in
         }, 50)
 
-        // Fade out thankYouForm after 3 seconds
+        // Fade out thankYouForm after 1 seconds
         setTimeout(function() {
-            thankYouForm.style.transition = "opacity 1s ease-in-out";
-            thankYouForm.style.opacity = "0";  // Fade out
+            addTransition(thankYouForm, 'leftFromCurrent');
+            setTimeout(function() {
+                thankYouForm.style.opacity = "0";  // Fade out
+                thankYouForm.style.opacity = "0";  // Fade out
+            }, 50);
         }, 1000);
 
         //Reset the star selection
