@@ -135,6 +135,12 @@ animation: shake 5s ease-in-out infinite;
     border-radius: 10px;
 }
 
+.close-star {
+    position: fixed;
+    right: 0;
+    margin-right: 7px;
+    
+}
 
 
 
