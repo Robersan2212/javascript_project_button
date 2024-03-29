@@ -138,8 +138,9 @@ animation: shake 5s ease-in-out infinite;
 .close-star {
     position: fixed;
     right: 0;
-    margin-right: 7px;
-    
+    padding-bottom:  20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 
@@ -160,7 +161,7 @@ animation: shake 5s ease-in-out infinite;
     padding: 10px;
     background-color: #006eb6;
     font-size: 20px;
-    color: gold;
+    color: #ffffff;
     font-family: sans-serif;
     margin-top: 100px;
 }
