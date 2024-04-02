@@ -1,3 +1,7 @@
+/****CSS rules are listed in the order they appeared in HTML, starting from the TOP of the PAGE to BUTTON.****/
+
+
+/* Body style */
 body{
 margin: 0;
 display: flex;
@@ -8,37 +12,133 @@ height: 100vh;
 
 
 
-/*Styling and position for the close button: id=feedback-button Div----------------------------------*/
-.feedback-button{
-/*Position of close button---------------------------------*/
-position: fixed;
-left: 0; 
-top: 50%;
-transform: translateY(-50%) rotate(90deg);
-animation: slide;
-padding: 10px;
-font-size: 16px;
-margin: -35px;
-background-color:#006eb6;
-/*---------------------------------------------------------*/
-/*Style of close button--------------------------------------*/
-border-radius: 8px;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-color: #ffffff;
-cursor: pointer;
-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-animation: shake 5s ease-in-out infinite; 
-/*Style----------------------------------------------------------*/ 
+
+/*Styling and position for the close button: id=feedback-button Div--------------------------------------------*/
+    .feedback-button{
+
+    /*Position of close button---------------------------------*/
+    position: fixed;
+    left: 0; 
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    animation: slide;
+    padding: 10px;
+    font-size: 16px;
+    margin: -35px;
+    /*Position End---------------------------------------------------------*/
+
+    /*Style of close button--------------------------------------*/
+    background-color:#006eb6;
+    border-radius: 8px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    
+    /*Style of close button END--------------------------------------*/
+
+
+    /*Animation for close button--------------------------------------*/
+    animation: shake 5s ease-in-out infinite;
+    }
+    @keyframes shake {
+        0%, 16.67% { transform: rotate(90deg) translateY(0); }
+        4.17%, 12.5% { transform: rotate(90deg) translateY(-5px); }
+        8.33% { transform: rotate(90deg) translateY(0); }
+        20.83%, 100% { transform: rotate(90deg) translateY(0); }
+    }
+    /*Animation for close button END--------------------------------------*/
+
+
+/*Styling and position of close button: id=feedback-button DIV END ------------------------------------------------------------------------------------*/
+
+
+
+
+/*Styling of rating widget: class=rating-widget---------------------------------------*/
+
+    /**initially hides the rating form when button is close**/
+    .rating-widget-hidden {
+        display: none; 
+    }
+
+    .rating-widget {
+        position: fixed;
+        left: 0; 
+        top: 42%;
+        transform: translateY(-50%);
+        background-color: #006eb6;
+        padding: 20px;
+        color: #ffffff;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  
+    }
+/*Styling of rating widget: class=rating-widget END-----------------------------------------*/
+
+
+
+
+/*Style for closing "x" button on the top right corner of the feedback form: class=close-star---------------------------------------*/
+    .close-star {
+        position: fixed;
+        right: 0;
+        padding-bottom:  20px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+/*Style for closing "x" button on the top right corner of the feedback form: class=close-star END---------------------------------------*/
+
+
+
+
+
+/*Styling and Effect for Star Selection-----*/
+
+    /**initially hides the star rating when button is close**/
+    .stars-hidden{
+    display:none;
+    }
+
+    .stars{
+    margin-top: -20px;
+    margin-bottom: 8px;
+    }
+        /*Individual star rating style class= star-----------------------------------*/
+        .star {
+            color: #006eb6;
+            text-shadow: -1px 0 gold, 0 1px gold, 1px 0 gold, 0 -1px gold;
+            font-size: 3em; 
+
+
+        }
+        .star.hovered {
+            transform: scale(1.2);
+            color: gold;}
+        /*Individual star rating style class= star END-----------------------------------*/
+
+
+    /*style of selected star rating class=star.selected-----------------------------------*/
+    .star.selected{
+        color: gold;
+    }
+    /*style of selected star rating class=star.selected END-----------------------------------*/
+
+/*Styling for star selection END---------------------------------------*/
+
+
+
+
+/*Styling of "Next" button id=nextSelection-------------*/
+#nextSelection{
+    display: none;
+    margin-top: 10px;
 }
+/*Styling of "Next" button END id=nextSelection END-------*/
 
 
 
-@keyframes shake {
-    0%, 16.67% { transform: rotate(90deg) translateY(0); }
-    4.17%, 12.5% { transform: rotate(90deg) translateY(-5px); }
-    8.33% { transform: rotate(90deg) translateY(0); }
-    20.83%, 100% { transform: rotate(90deg) translateY(0); }
-}
 
 #feedback{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -55,36 +155,6 @@ animation: shake 5s ease-in-out infinite;
 
 
 
-
-
-/*Styling and Effect for Star Selection-----*/
-.stars-hidden{
-    display:none;
-}
-.star {
-    color: #006eb6;
-    text-shadow: -1px 0 gold, 0 1px gold, 1px 0 gold, 0 -1px gold;
-    font-size: 3em; 
-    
-    
-}
-.star.hovered {
-    transform: scale(1.2);
-    color: gold;}
-
-
-.stars{
-    margin-top: -20px;
-    margin-bottom: 8px;
-}
-.star.selected{
-    color: gold;
-}
-
-
-
-
-
 /*Styling of text areas for email and Feedback----*/
 #feedbackForm textarea,
 #feedbackForm input{
@@ -98,35 +168,29 @@ animation: shake 5s ease-in-out infinite;
 
 
 
-
-/* Styling for div class "rating-widget"---- */
-.rating-widget-hidden {
-    display: none; 
-}
-.rating-widget {
-    position: fixed;
-    left: 0; /* Change this from right to left */
-    top: 42%;
-    transform: translateY(-50%);
-    background-color: #006eb6;
-    padding: 20px;
-    color: #ffffff;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  
-}
-
 #selectedRating {
     display: none;
     font-size: medium;
+}
+
+#selectedStars {
+    color: gold;
+    margin-left: 4px;
+    font-size: large;
+    font-style: italic;
+}
+
+#ratingText {
+  color: gold;
+    font-size: large;
+    font-style: italic;  
 }
 
 
 /*Styling for "Submit" button----*/
 #submitFeedback{
     margin-top: 10px;
-    margin-left: 95px;
+    margin-left: 77px;
     color: #006eb6;
     border: 2px solid #006eb6 ;
     font-size: large;
@@ -158,10 +222,11 @@ animation: shake 5s ease-in-out infinite;
     top: 40%;
     transform: translateY(-50%);
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     background-color: #006eb6;
     font-size: 20px;
-    color: #ffffff;
+    color: white;
     font-family: sans-serif;
+    font-size: larger;
     margin-top: 100px;
 }
