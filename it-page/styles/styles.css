@@ -139,7 +139,7 @@ height: 100vh;
 
 
 
-
+/*Style feedback form: id=feedbackForm---------------------------------------*/
 #feedback{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -153,9 +153,7 @@ height: 100vh;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-
-/*Styling of text areas for email and Feedback----*/
+/*Styling of text areas for email and Feedback*/
 #feedbackForm textarea,
 #feedbackForm input{
     display: block;
@@ -165,9 +163,10 @@ height: 100vh;
     margin-bottom: 10px;
 }
 
+/*Styling of text areas for email and Feedback END-----------------------------*/
 
 
-
+/*Styling fro selected rating and stars text------------------------------------*/
 #selectedRating {
     display: none;
     font-size: medium;
@@ -185,7 +184,7 @@ height: 100vh;
     font-size: large;
     font-style: italic;  
 }
-
+/*Styling fro selected rating and stars text END------------------------------------*/
 
 /*Styling for "Submit" button----*/
 #submitFeedback{

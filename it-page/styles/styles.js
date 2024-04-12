@@ -152,10 +152,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const feedback = document.getElementById('feedback').value;
         const rating = selectedStars.textContent;
 
-        // Send data to server
-        console.log('Email:', email);
-        console.log('Feedback:', feedback);
-        console.log('Rating:', rating);
+        // Prepare the data to send
+        const data = {
+        "Rating": rating,
+        "Email": email,
+        "Message": feedback
+    };
+
+    // Send data to server
+    fetch('https://https://orgc4e7f279.api.crm.dynamics.com/api/data/v9.2/td_feedback_widget_data', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer YourAccessToken',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
 
         //Reset for feedback form
         feedbackForm.reset();
